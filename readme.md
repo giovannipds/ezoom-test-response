@@ -1,6 +1,4 @@
-############################################
-[Ezoom](http://www.grupoezoom.com.br/ezoom/)'s full stack developer test submission
-############################################
+# [Ezoom](http://www.grupoezoom.com.br/ezoom/)'s full stack developer test submission
 
 Link to the demo: [http://ezoom.web7025.uni5.net/](http://ezoom.web7025.uni5.net/)
 
@@ -10,9 +8,7 @@ The test requested was: build an application using [CodeIgniter](http://codeigni
 
 This project is using CodeIgniter 3.1.7.
 
-*******************
-Server Requirements
-*******************
+## Server Requirements
 
 PHP version 5.6 or newer is recommended.
 
@@ -20,16 +16,10 @@ It should work on 5.3.7 as well, but we strongly advise you NOT to run
 such old versions of PHP, because of potential security and performance
 issues, as well as missing features.
 
-************
-Installation
-************
+## Installation
 
-Please see the `installation section <https://codeigniter.com/user_guide/installation/index.html>`_
-of the CodeIgniter User Guide.
+Please see the [installation section](https://codeigniter.com/user_guide/installation/index.html) of the CodeIgniter User Guide.
 
-*******
-License
-*******
+## License
 
-Please see the `license
-agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
+Please see the [license agreement](https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst).
