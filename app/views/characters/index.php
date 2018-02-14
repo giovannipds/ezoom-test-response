@@ -38,5 +38,5 @@
 		<?php endforeach; ?>
 	</div>
 <?php else: ?>
-	<p class="lead text-center">Não há personagens cadastradas, experimente adicionar alguns.</p>
+	<p class="lead text-center">Não há personagens cadastrados, experimente adicionar alguns.</p>
 <?php endif; ?>
