@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class TV_Shows_model extends CI_Model {
+class Tv_shows_model extends CI_Model {
 
     public $table = 'tv_shows';
 

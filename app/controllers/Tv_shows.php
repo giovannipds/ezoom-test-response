@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class TV_Shows extends CI_Controller {
+class Tv_shows extends CI_Controller {
 
 	public function __construct()
 	{
