@@ -70,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | The $query_builder variables lets you determine whether or not to load
 | the query builder class.
 */
-$active_group = ENVIRONMENT;
+$active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = [
@@ -94,12 +94,3 @@ $db['default'] = [
 	'failover' => [],
 	'save_queries' => TRUE
 ];
-
-$db['development'] = $db['default'];
-
-$db['testing'] = $db['default'];
-$db['testing']['hostname'] = 'mysql02-farm70.uni5.net';
-$db['testing']['username'] = 'ezoom04';
-$db['testing']['password'] = 'zubat1234';
-$db['testing']['database'] = 'ezoom04';
-$db['testing']['db_debug'] = (ENVIRONMENT !== 'production');
