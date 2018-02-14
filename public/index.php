@@ -53,7 +53,12 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'production');
+if (isset($_SERVER['CI_ENV']))
+	define('ENVIRONMENT', $_SERVER['CI_ENV']);
+elseif (isset($_SERVER['REDIRECT_CI_ENV']))
+	define('ENVIRONMENT', $_SERVER['REDIRECT_CI_ENV']);
+else
+	define('ENVIRONMENT', 'production');
 
 /*
  *---------------------------------------------------------------
