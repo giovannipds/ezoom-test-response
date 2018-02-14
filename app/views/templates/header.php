@@ -45,9 +45,15 @@
 		<header class="jumbotron text-center">
 			<div class="container">
 
-				<h1 class="display-4">Teste <a class="c-inherit" href="http://www.grupoezoom.com.br/ezoom/" target="_blank" title="Acessar o site da Ezoom">Ezoom</a></h1>
+				<?php if ($this->uri->segment(1) == ''): ?>
+					<h1 class="h2">Teste <a class="c-inherit" href="http://www.grupoezoom.com.br/ezoom/" target="_blank" title="Acessar o site da Ezoom">Ezoom</a></h1>
+				<?php else: ?>
+					<div class="h5 mb-3"><a class="c-inherit" href="<?= base_url(); ?>" title="Ir para a página inicial">Teste Ezoom</a></div>
+				<?php endif; ?>
 
-				<p class="lead">Um <abbr class="initialism" lang="en" title="Create, Read, Update & Delete">CRUD</abbr> básico em <a class="c-inherit" href="https://www.codeigniter.com" target="_blank">CodeIgniter</a>.</p>
+				<?php if ($this->uri->segment(1) == ''): ?>
+					<p class="lead">Um <abbr class="initialism" lang="en" title="Create, Read, Update & Delete">CRUD</abbr> básico em <a class="c-inherit" href="https://www.codeigniter.com" target="_blank">CodeIgniter</a>.</p>
+				<?php endif; ?>
 
 				<div aria-label="Seções do site" class="btn-group btn-group-lg" role="group">
 					<a class="btn btn-primary active" href="<?= site_url('series'); ?>">Séries</a>

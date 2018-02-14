@@ -5,9 +5,9 @@
 			<div class="col-sm-6 col-md-4 col-lg-3">
 				<div class="card">
 					<h2 class="card-header h5">
-						<a class="c-inherit" href="<?= site_url('series/ver/' . $tv_show_item['slug']); ?>" title="Saber mais sobre esta série"><?= $tv_show_item['name']; ?></a>
+						<a class="c-inherit" href="<?= site_url('serie/' . $tv_show_item['slug']); ?>" title="Saber mais sobre esta série"><?= $tv_show_item['name']; ?></a>
 					</h2>
-					<a href="<?= site_url('series/ver/' . $tv_show_item['slug']); ?>" title="Saber mais sobre esta série">
+					<a href="<?= site_url('serie/' . $tv_show_item['slug']); ?>" title="Saber mais sobre esta série">
 						<img alt="<?= 'Imagem da série ' . $tv_show_item['name']; ?>" class="card-img-top" src="<?= $tv_show_item['image']; ?>">
 					</a>
 					<div class="card-body">
