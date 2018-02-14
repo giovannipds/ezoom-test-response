@@ -101,4 +101,24 @@ class TV_Shows extends CI_Controller {
 		}
 	}
 
+	/**
+	 * Delete route for this controller.
+	 *
+	 * Maps to the following URLs
+	 * 		http://example.com/index.php/series/deletar/slug
+	 * 		http://example.com/index.php/tv_shows/delete/slug
+	 * 		http://example.com/index.php/tv-shows/delete/slug
+	 */
+	public function delete($slug = NULL)
+	{
+		if ($slug === NULL)
+			show_404();
+		$tv_show = $this->tv_shows_model->get($slug);
+		if (empty($tv_show))
+			show_404();
+		$this->tv_shows_model->delete($slug);
+		$this->session->set_flashdata('success_message', 'Série deletada.');
+		redirect('/');
+	}
+
 }

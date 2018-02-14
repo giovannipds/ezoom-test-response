@@ -56,4 +56,9 @@ class TV_Shows_model extends CI_Model {
 		}
 	}
 
+	public function delete($slug)
+	{
+		return $this->db->delete($this->table, ['slug' => $slug]);
+	}
+
 }
