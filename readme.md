@@ -2,9 +2,9 @@
 
 Link to the demo: [http://ezoom.web7025.uni5.net/](http://ezoom.web7025.uni5.net/)
 
-This February (2018), the digital agency [Ezoom](http://www.grupoezoom.com.br/ezoom/), from Caxias do Sul, Rio Grande do Sul, Brazil, got in touch with me to see if I'd like to apply to a job position in their agency.
+This February (2018), the digital agency [Ezoom](http://www.grupoezoom.com.br/ezoom/), from Caxias do Sul, Rio Grande do Sul, Brazil, got in touch with me to see if I'd like to apply to a job position at their agency.
 
-The test requested was: build an application using [CodeIgniter](http://codeigniter.com), with a basic CRUD - Create, Read, Update and Delete - and at least two tabelas related, like Products and Categories. Good HTML and CSS was a plus. PHP 5.6+ and MySQL 5.5+.
+The test requested was: build an application using [CodeIgniter](http://codeigniter.com), with a basic CRUD - Create, Read, Update and Delete - and at least two tabelas related, like Products and Categories. Good HTML and CSS were a plus. PHP 5.6+ and MySQL 5.5+.
 
 This project is using CodeIgniter 3.1.7.
 
