@@ -1,33 +1,30 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class TV_Shows_model extends CI_Model {
+class Characters_model extends CI_Model {
 
-    public $table = 'tv_shows';
-
-	public function __construct()
-	{
-		$this->load->database();
-		$this->load->helper('url');
-	}
+    public $table = 'characters';
 
 	public function get($slug = NULL)
 	{
+		$this->db->select($this->table . '.*, tv_shows.name as tv_show_name');
+		$this->db->join('tv_shows', 'tv_shows.id = ' . $this->table . '.tv_show_id');
 		if ($slug === NULL) {
 			$this->db->order_by('id', 'DESC');
 			$query = $this->db->get($this->table);
 			return $query->result_array();
 
 		} else {
-			$query = $this->db->get_where($this->table, ['slug' => $slug]);
+			$query = $this->db->get_where($this->table, [$this->table . '.slug' => $slug]);
 			return $query->row_array();
 		}
 	}
 
-	public function get_by_id($id)
+	public function get_by_tv_show($tv_show_id)
 	{
-		$query = $this->db->get_where($this->table, ['id' => $id]);
-		return $query->row_array();
+		$this->db->order_by('id', 'DESC');
+		$query = $this->db->get_where($this->table, ['tv_show_id' => $tv_show_id]);
+		return $query->result_array();
 	}
 
 	public function set($slug = NULL)
@@ -39,8 +36,7 @@ class TV_Shows_model extends CI_Model {
 				'name' => $name,
 				'slug' => $slug,
 				'image_url' => $this->input->post('image_url'),
-				'youtube_embed_url' => $this->input->post('youtube_embed_url'),
-				'short_description' => $this->input->post('short_description'),
+				'tv_show_id' => $this->input->post('tv_show_id'),
 			];
 			return $this->db->insert($this->table, $data);
 
@@ -53,10 +49,8 @@ class TV_Shows_model extends CI_Model {
 			}
 			if ($image_url = $this->input->post('image_url'))
 				$data['image_url'] = $image_url;
-			if ($youtube_embed_url = $this->input->post('youtube_embed_url'))
-				$data['youtube_embed_url'] = $youtube_embed_url;
-			if ($short_description = $this->input->post('short_description'))
-				$data['short_description'] = $short_description;
+			if ($tv_show_id = $this->input->post('tv_show_id'))
+				$data['tv_show_id'] = $tv_show_id;
 			$this->db->where('slug', $slug);
 			return $this->db->update($this->table, $data);
 		}

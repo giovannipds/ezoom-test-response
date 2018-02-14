@@ -1,9 +1,12 @@
-<?= validation_errors(); ?>
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <?php $exists = isset($tv_show); ?>
 
 <div class="row">
 	<div class="col-md-10 offset-md-1 col-lg-6 offset-lg-3">
+
+		<?= validation_errors('<div class="alert alert-danger">', '</div>'); ?>
+
 		<?= form_open(current_url()); ?>
 			<div class="form-group">
 				<label class="sr-only" for="name">Nome</label>
@@ -28,7 +31,7 @@
 			</div>
 			<div class="form-group">
 				<label class="sr-only" for="short_description">Descrição Curta</label>
-				<textarea class="form-control-lg form-control" id="short_description" name="short_description" placeholder="Descrição Curta" required rows="4"><?= $exists ? $tv_show['short_description'] : ''; ?></textarea>
+				<textarea class="form-control-lg form-control" id="short_description" name="short_description" placeholder="Descrição Curta" rows="4"><?= $exists ? $tv_show['short_description'] : ''; ?></textarea>
 			</div>
 			<div class="row">
 				<div class="col-md-5 offset-md-7">

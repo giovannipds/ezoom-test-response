@@ -6,6 +6,7 @@ class TV_Shows extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('characters_model');
 		$this->load->model('tv_shows_model');
 	}
 
@@ -46,6 +47,7 @@ class TV_Shows extends CI_Controller {
 			show_404();
 
 		$data['tv_show'] = $this->tv_shows_model->get($slug);
+		$data['characters'] = $this->characters_model->get_by_tv_show($data['tv_show']['id']);
 
 		if (empty($data['tv_show']))
 			show_404();
@@ -81,7 +83,6 @@ class TV_Shows extends CI_Controller {
 		$this->form_validation->set_rules('name', 'Nome', 'required');
 		$this->form_validation->set_rules('image_url', 'Endereço da Imagem', 'required|valid_url');
 		$this->form_validation->set_rules('youtube_embed_url', 'Endereço do Vídeo YouTube para incorporar', 'required|valid_url');
-		$this->form_validation->set_rules('short_description', 'Descrição Curta', 'required');
 
 		if ($this->form_validation->run() === FALSE)
 		{

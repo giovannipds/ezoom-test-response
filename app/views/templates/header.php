@@ -41,6 +41,11 @@
 			.alert {
 				margin-bottom: 30px;
 			}
+			.card-img-overlay .card-title {
+				background-color: rgba(0, 0, 0, 9);
+				padding: .33em;
+				display: inline-block;
+			}
 		</style>
 	</head>
 	<body>
@@ -59,11 +64,11 @@
 				<?php endif; ?>
 
 				<div aria-label="Seções do site" class="btn-group btn-group-lg" role="group">
-					<a class="btn btn-primary active" href="<?= site_url('series'); ?>">Séries</a>
+					<a class="<?= 'btn btn-primary' . (in_array($this->uri->segment(1), ['', 'serie','series', 'tv-shows', 'tv_shows']) ? ' active' : ''); ?>" href="<?= site_url('series'); ?>">Séries</a>
 					<a aria-label="Adicionar série" class="btn btn-primary" href="<?= site_url('series/inserir'); ?>" title="Adicionar série">
 						<i aria-hidden="true" class="material-icons">add</i>
 					</a>
-					<a class="btn btn-secondary" href="<?= site_url('personagens'); ?>">Personagens</a>
+					<a class="<?= 'btn btn-secondary' . (in_array($this->uri->segment(1), ['personagem', 'personagens', 'characters']) ? ' active' : ''); ?>" href="<?= site_url('personagens'); ?>">Personagens</a>
 					<a aria-label="Adicionar personagem" class="btn btn-secondary" href="<?= site_url('personagens/inserir'); ?>" title="Adicionar personagem">
 						<i aria-hidden="true" class="material-icons">add</i>
 					</a>
