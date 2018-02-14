@@ -114,7 +114,19 @@ switch (ENVIRONMENT)
  *
  * NO TRAILING SLASH!
  */
-	$application_folder = '/Giovanni/Local/htdocs/ezoom-test/app';
+switch (ENVIRONMENT)
+{
+	case 'development':
+		$application_folder = '/Giovanni/Local/htdocs/ezoom-test/app';
+	break;
+
+	case 'testing':
+		$application_folder = '/home/ezoom/repository/app';
+	break;
+
+	default:
+		$application_folder = '../app';
+}
 
 /*
  *---------------------------------------------------------------

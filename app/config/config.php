@@ -23,7 +23,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://ezoom-test.local/';
+switch (ENVIRONMENT)
+{
+	case 'development':
+		$config['base_url'] = 'http://ezoom-test.local/';
+	break;
+
+	case 'testing':
+		$config['base_url'] = 'http://ezoom.web7025.uni5.net/';
+	break;
+
+	default:
+		$config['base_url'] = '';
+}
 
 /*
 |--------------------------------------------------------------------------
