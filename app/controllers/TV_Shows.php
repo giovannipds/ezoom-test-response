@@ -36,9 +36,9 @@ class TV_Shows extends CI_Controller {
 	 * View Page for this controller.
 	 *
 	 * Maps to the following URLs
-	 * 		http://example.com/index.php/serie/name
-	 * 		http://example.com/index.php/tv_shows/view/name
-	 * 		http://example.com/index.php/tv-shows/view/name
+	 * 		http://example.com/index.php/serie/slug
+	 * 		http://example.com/index.php/tv_shows/view/slug
+	 * 		http://example.com/index.php/tv-shows/view/slug
 	 */
 	public function view($slug = NULL)
 	{
@@ -60,13 +60,23 @@ class TV_Shows extends CI_Controller {
 	 *
 	 * Maps to the following URLs
 	 * 		http://example.com/index.php/series/inserir
-	 * 		http://example.com/index.php/tv_shows/create
-	 * 		http://example.com/index.php/tv-shows/create
+	 * 		http://example.com/index.php/series/editar/slug
+	 * 		http://example.com/index.php/tv_shows/create_update
+	 * 		http://example.com/index.php/tv-shows/create_update
+	 * 		http://example.com/index.php/tv_shows/create_update/slug
+	 * 		http://example.com/index.php/tv-shows/create_update/slug
 	 */
-	public function create()
+	public function create_update($slug = NULL)
 	{
 		$this->load->helper('form');
 		$this->load->library('form_validation');
+
+		$data = [];
+		if ($slug) {
+			$data['tv_show'] = $this->tv_shows_model->get($slug);
+			if (empty($data['tv_show']))
+				show_404();
+		}
 
 		$this->form_validation->set_rules('name', 'Nome', 'required');
 		$this->form_validation->set_rules('image_url', 'Endereço da Imagem', 'required|valid_url');
@@ -75,14 +85,18 @@ class TV_Shows extends CI_Controller {
 
 		if ($this->form_validation->run() === FALSE)
 		{
-			$this->load->view('templates/header');
-			$this->load->view('tv_shows/create');
-			$this->load->view('templates/footer');
+			$this->load->view('templates/header', $data);
+			$this->load->view('tv_shows/create_update', $data);
+			$this->load->view('templates/footer', $data);
 		}
 		else
 		{
-			$this->tv_shows_model->set();
-			$this->session->set_flashdata('success_message', 'Sua série foi inserida com exito.');
+			$this->tv_shows_model->set($slug);
+			if ($slug) {
+				$this->session->set_flashdata('success_message', 'Sua série foi atualizada com exito.');
+			} else {
+				$this->session->set_flashdata('success_message', 'Sua série foi inserida com exito.');
+			}
 			redirect('/');
 		}
 	}

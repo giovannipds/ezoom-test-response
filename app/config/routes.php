@@ -50,7 +50,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['serie/(:any)'] = 'tv_shows/view/$1';
-$route['series/inserir'] = 'tv_shows/create';
+$route['series/editar/(:any)'] = 'tv_shows/create_update/$1';
+$route['series/inserir'] = 'tv_shows/create_update';
 $route['series'] = 'tv_shows/index';
 $route['default_controller'] = 'tv_shows/index';
 $route['404_override'] = '';
