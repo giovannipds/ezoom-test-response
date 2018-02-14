@@ -54,4 +54,37 @@ class TV_Shows extends CI_Controller {
 		$this->load->view('tv_shows/view', $data);
 		$this->load->view('templates/footer', $data);
 	}
+
+	/**
+	 * Create Page for this controller.
+	 *
+	 * Maps to the following URLs
+	 * 		http://example.com/index.php/series/inserir
+	 * 		http://example.com/index.php/tv_shows/create
+	 * 		http://example.com/index.php/tv-shows/create
+	 */
+	public function create()
+	{
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('name', 'Nome', 'required');
+		$this->form_validation->set_rules('image_url', 'Endereço da Imagem', 'required|valid_url');
+		$this->form_validation->set_rules('youtube_embed_url', 'Endereço do Vídeo YouTube para incorporar', 'required|valid_url');
+		$this->form_validation->set_rules('short_description', 'Descrição Curta', 'required');
+
+		if ($this->form_validation->run() === FALSE)
+		{
+			$this->load->view('templates/header');
+			$this->load->view('tv_shows/create');
+			$this->load->view('templates/footer');
+		}
+		else
+		{
+			$this->tv_shows_model->set();
+			$this->session->set_flashdata('success_message', 'Sua série foi inserida com exito.');
+			redirect('/');
+		}
+	}
+
 }

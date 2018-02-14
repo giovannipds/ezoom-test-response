@@ -38,6 +38,9 @@
 			.c-inherit:hover {
 				color: inherit;
 			}
+			.alert {
+				margin-bottom: 30px;
+			}
 		</style>
 	</head>
 	<body>
