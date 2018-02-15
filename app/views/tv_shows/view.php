@@ -28,7 +28,7 @@
 			<h2 class="h5 mb-3">Personagens</h2>
 			<div class="row">
 				<?php foreach ($characters as $character): ?>
-					<div class="col-sm-6 col-md-4">
+					<div class="col-6 col-md-4">
 						<div class="card bg-dark text-white">
 							<a class="c-inherit" href="<?= site_url('personagem/' . $character['slug']); ?>" title="Ver personagem">
 								<img alt="<?= 'Foto do personagem ' . $character['name']; ?>" class="card-img" src="<?= $character['image_url']; ?>">
