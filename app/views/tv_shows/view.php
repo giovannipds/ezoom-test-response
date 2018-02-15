@@ -1,14 +1,20 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <div class="row">
-	<div class="col-3">
+	<div class="col-md-3">
 		<h1 class="h4 mb-4"><?= $tv_show['name']; ?></h1>
-		<img alt="<?= 'Imagem da série ' . $tv_show['name']; ?>" class="img-fluid w-100 mb-4" src="<?= $tv_show['image_url']; ?>">
-		<?php if ($tv_show['short_description']): ?>
-			<p><?= $tv_show['short_description']; ?></p>
-		<?php endif; ?>
+		<div class="row mb-4">
+			<div class="col-4 col-sm-3 col-md-12">
+				<img alt="<?= 'Imagem da série ' . $tv_show['name']; ?>" class="img-fluid w-100 mb-4" src="<?= $tv_show['image_url']; ?>">
+			</div>
+			<?php if ($tv_show['short_description']): ?>
+				<div class="col-8 col-sm-9 col-md-12">
+					<p><?= $tv_show['short_description']; ?></p>
+				</div>
+			<?php endif; ?>
+		</div>
 	</div>
-	<div class="col-9">
+	<div class="col-md-9">
 
 		<?php if ($tv_show['youtube_embed_url']): ?>
 			<div class="embed-responsive embed-responsive-16by9 mb-4">
